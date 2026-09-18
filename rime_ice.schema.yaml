@@ -72,7 +72,7 @@ engine:
     - lua_translator@*calc_translator    # 计算器
     - lua_translator@*force_gc           # 暴力 GC
   filters:
-    - lua_filter@*corrector                         # 错音错字提示
+    # - lua_filter@*corrector                       # 错音错字提示（依赖拼音注释，关闭拼音注释后一并停用）
     - reverse_lookup_filter@radical_reverse_lookup  # 部件拆字滤镜
     - lua_filter@*autocap_filter                    # 英文自动大写
     - lua_filter@*v_filter                          # v 模式 symbols 优先
@@ -167,13 +167,13 @@ translator:
   dictionary: rime_ice         # 挂载词库 rime_ice.dict.yaml
   enable_word_completion: true # 大于 4 音节的词条自动补全，librime > 1.11.2
   # max_sentences: 1           # 造句数量，偏好长句输入可设置大于 1，librime ≥ 1.17.0
-  spelling_hints: 8            # corrector.lua ：为了让错音错字提示的 Lua 同时适配全拼双拼，将拼音显示在 comment 中
-  always_show_comments: true   # corrector.lua ：Rime 默认在 preedit 等于 comment 时取消显示 comment，这里强制一直显示，供 corrector.lua 做判断用。
+  spelling_hints: 0            # 不显示拼音注释（原为 8，供 corrector.lua 判断用）
+  always_show_comments: false  # 不强制显示 comment
   # keep_comments: true        # corrector.lua ：显示拼音注释
   initial_quality: 1.2         # 拼音的权重应该比英文大
-  comment_format:              # 标记拼音注释，供 corrector.lua 做判断用
-    - xform/^/［/
-    - xform/$/］/
+  # comment_format:            # 标记拼音注释，供 corrector.lua 做判断用
+  #   - xform/^/［/
+  #   - xform/$/］/
   preedit_format:              # preedit_format 影响到输入框的显示和“Shift+回车”上屏的字符
     - xform/([jqxy])v/$1u/     # 显示为 ju qu xu yu
     # - xform/([nl])v/$1ü/     # 显示为 nü lü
