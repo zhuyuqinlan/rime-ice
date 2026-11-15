@@ -8,8 +8,8 @@ sync/
 *.userdb/
 installation.yaml
 user.yaml
-*.custom.yaml
-!others/**/*.custom.yaml
+# 个人补丁 *.custom.yaml 已纳入版本管理（不再忽略），
+# others/ 下的示例补丁同样照常跟踪
 
 custom_phrase_double.txt
 others/script/scel2txt/out/*
