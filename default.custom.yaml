@@ -1,0 +1,10 @@
+# 个人配置补丁：覆盖 default.yaml 中的默认值
+# 本文件已被 .gitignore 忽略（*.custom.yaml），不会进入 git，
+# 因此同步上游 iDvel/rime-ice 时不会产生冲突。
+patch:
+  # 候选词个数：5 → 8
+  "menu/page_size": 8
+
+  # 方案选单快捷键：只保留 F4，去掉 Control+grave / Control+Shift+grave
+  "switcher/hotkeys":
+    - F4

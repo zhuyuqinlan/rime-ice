@@ -1,0 +1,9 @@
+# 个人配置补丁：覆盖 rime_ice.schema.yaml 中的默认值
+# 本文件已被 .gitignore 忽略（*.custom.yaml），不会进入 git，
+# 因此同步上游 iDvel/rime-ice 时不会产生冲突。
+patch:
+  # 不显示拼音注释（原为 8）
+  "translator/spelling_hints": 0
+
+  # 不强制显示 comment（原为 true）
+  "translator/always_show_comments": false
